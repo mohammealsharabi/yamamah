@@ -1,0 +1,706 @@
+﻿ /* ===== متغيرات CSS ===== */
+ :root {
+    --primary: #1a1a2e;
+    --primary-light: #16213e;
+    --accent: #00b4d8;
+    --accent-light: #48cae4; 
+    --accent-dark: #0096c7;
+    --cloud: #e9ecef;
+    --cloud-light: #ffffff;
+    --gold: #ffd60a;
+    --gold-light: #ffd93d;
+    --text-light: #f8f9fa;
+    --text-muted: #6c757d;
+    --gradient-1: linear-gradient(120deg, #00b4d8, #0096c7);
+    --gradient-2: linear-gradient(120deg, #ffd60a, #ffd93d);
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --border-radius: 12px;
+    --transition-normal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    --font-family: 'Tajawal', sans-serif;
+}
+
+/* ===== إعادة ضبط وقواعد عامة ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary);
+    color: var(--text-light);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+/* ===== خلفية السماء ===== */
+.sky-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, #001233 0%, #023e8a 100%);
+    overflow: hidden;
+}
+
+/* ===== النجوم ===== */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: twinkle var(--duration, 5s) infinite ease-in-out;
+    opacity: 0;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: var(--opacity, 0.7); transform: scale(1); }
+}
+
+/* ===== الشهب ===== */
+.shooting-star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    transform-origin: left center;
+    z-index: 2;
+    opacity: 0;
+    filter: blur(1px);
+    animation: shoot var(--duration, 5s) var(--delay, 0s) infinite linear;
+}
+
+@keyframes shoot {
+    0% {
+        opacity: 0;
+        transform: translateX(0) translateY(0) rotate(var(--angle));
+    }
+    5% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+        transform: translateX(var(--travel-x)) translateY(var(--travel-y)) rotate(var(--angle));
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(var(--travel-x)) translateY(var(--travel-y)) rotate(var(--angle));
+    }
+}
+
+/* ===== السحب ===== */
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    filter: blur(5px);
+    opacity: 0.6;
+    animation: cloud-move linear infinite;
+}
+
+@keyframes cloud-move {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-300px); }
+}
+
+/* ===== الطائرة ===== */
+.airplane-container {
+    position: absolute;
+    z-index: 10;
+    width: 300px;
+    height: 120px;
+    animation: 
+        airplane-entry 8s forwards,
+        airplane-float 4s 8s infinite alternate ease-in-out;
+    top: 40%;
+    left: -350px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+@keyframes airplane-entry {
+    0% { 
+        left: -350px; 
+        transform: translateY(0) rotate(0deg) scale(0.8);
+    }
+    10% { 
+        transform: translateY(-50px) rotate(3deg) scale(0.85);
+    }
+    20% { 
+        transform: translateY(30px) rotate(-2deg) scale(0.9);
+    }
+    40% { 
+        transform: translateY(-20px) rotate(1deg) scale(0.95);
+    }
+    60% { 
+        transform: translateY(10px) rotate(-0.5deg) scale(1);
+    }
+    80% { 
+        transform: translateY(-5px) rotate(0deg) scale(1);
+    }
+    100% { 
+        left: calc(50% - 150px); 
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes airplane-float {
+    0% { transform: translateY(0) rotate(0deg) translateZ(0); }
+    25% { transform: translateY(-10px) rotate(0.5deg) translateZ(15px); }
+    50% { transform: translateY(-20px) rotate(1deg) translateZ(25px); }
+    75% { transform: translateY(-10px) rotate(0.5deg) translateZ(15px); }
+    100% { transform: translateY(-5px) rotate(0deg) translateZ(5px); }
+}
+
+.airplane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.airplane-body {
+    position: absolute;
+    width: 240px;
+    height: 50px;
+    background: linear-gradient(45deg, #e0e0e0, #ffffff);
+    border-radius: 80px 20px 20px 20px;
+    top: 35px;
+    left: 30px;
+    z-index: 2;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.airplane-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 80px 20px 0 0;
+}
+
+.airplane-nose {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #d1d1d1, #ffffff);
+    border-radius: 70% 30% 30% 30%;
+    top: 40px;
+    left: 10px;
+    z-index: 3;
+    box-shadow: inset -2px -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.airplane-nose::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+    border-radius: 50%;
+}
+
+.airplane-tail {
+    position: absolute;
+    width: 45px;
+    height: 60px;
+    background: linear-gradient(45deg, #d1d1d1, #ffffff);
+    top: -10px;
+    right: 30px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 20%);
+    z-index: 1;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.airplane-tail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.6), transparent);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 20%);
+}
+
+.airplane-wing {
+    position: absolute;
+    width: 180px;
+    height: 30px;
+    background: linear-gradient(to right, #d1d1d1, #ffffff);
+    border-radius: 15px 50px 5px 5px;
+    top: 55px;
+    left: 60px;
+    transform: skewX(-15deg);
+    z-index: 1;
+    box-shadow: 
+        0 8px 15px rgba(0, 0, 0, 0.15),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.airplane-wing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 15px 50px 0 0;
+}
+
+.airplane-wing.top {
+    width: 120px;
+    height: 25px;
+    top: 15px;
+    left: 90px;
+    transform: skewX(15deg);
+    background: linear-gradient(to right, #e0e0e0, #ffffff);
+    border-radius: 50px 15px 5px 5px;
+}
+
+.airplane-wing.top::before {
+    border-radius: 50px 15px 0 0;
+}
+
+.window {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #a8d8ff, #4a90e2);
+    border-radius: 50%;
+    top: 18px;
+    z-index: 3;
+    box-shadow: 
+        inset -1px -1px 3px rgba(0, 0, 0, 0.2),
+        0 0 5px rgba(255, 255, 255, 0.5);
+    animation: window-shine 3s infinite alternate;
+}
+
+@keyframes window-shine {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.window:nth-child(1) { left: 50px; animation-delay: 0.2s; }
+.window:nth-child(2) { left: 80px; animation-delay: 0.4s; }
+.window:nth-child(3) { left: 110px; animation-delay: 0.6s; }
+.window:nth-child(4) { left: 140px; animation-delay: 0.8s; }
+.window:nth-child(5) { left: 170px; animation-delay: 1s; }
+
+.engine {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background: linear-gradient(to bottom, #4a4a4a, #2d2d2d);
+    border-radius: 8px;
+    bottom: -8px;
+    z-index: 1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.engine:nth-child(1) { left: 70px; }
+.engine:nth-child(2) { left: 140px; }
+
+.engine::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 8px;
+    background: #5a5a5a;
+    border-radius: 4px;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.propeller-container {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #3d3d3d;
+    border-radius: 50%;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.propeller {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: linear-gradient(to right, #8a8a8a, #a0a0a0);
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    animation: propeller-spin 0.08s infinite linear;
+}
+
+@keyframes propeller-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.exhaust {
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background: linear-gradient(to left, 
+        rgba(200, 200, 200, 0.6), 
+        rgba(200, 200, 200, 0.3), 
+        transparent);
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: exhaust 0.2s infinite alternate;
+    filter: blur(3px);
+}
+
+@keyframes exhaust {
+    0% { width: 40px; opacity: 0.6; }
+    100% { width: 60px; opacity: 0.2; }
+}
+
+/* ===== تأثير الضوء على الطائرة ===== */
+.airplane-light {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    transform: translateX(-50%) rotateZ(-5deg);
+    top: 40px;
+    left: 0;
+    filter: blur(5px);
+    z-index: 0;
+    animation: light-flicker 5s infinite alternate;
+}
+
+@keyframes light-flicker {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* ===== مسار الطائرة ===== */
+.flight-path {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 4;
+    opacity: 0.3;
+    overflow: hidden;
+}
+
+.path-line {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, 
+        transparent, 
+        var(--accent-light) 20%, 
+        var(--accent) 50%,
+        var(--accent-light) 80%,
+        transparent);
+    animation: path-reveal 8s forwards;
+    filter: blur(1px);
+}
+
+@keyframes path-reveal {
+    0% { width: 0; left: 0; }
+    100% { width: 100%; left: 0; }
+}
+
+/* ===== حاوية المحتوى ===== */
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+}
+
+/* ===== شعار اليمامة ===== */
+.logo-container {
+    position: relative;
+    margin-bottom: 40px;
+    perspective: 1000px;
+    opacity: 0;
+    animation: fade-in 1s forwards 6s;
+    transform-style: preserve-3d;
+}
+
+.logo {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--text-light);
+    text-shadow: 
+        0 0 20px rgba(58, 134, 255, 0.7),
+        0 0 40px rgba(58, 134, 255, 0.4);
+    position: relative;
+    transform-style: preserve-3d;
+    animation: logo-float 6s infinite alternate ease-in-out;
+}
+
+@keyframes logo-float {
+    0% { transform: translateZ(0) rotateX(0deg); }
+    100% { transform: translateZ(50px) rotateX(10deg); }
+}
+
+.logo-accent {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+    animation: accent-pulse 3s infinite ease-in-out;
+}
+
+@keyframes accent-pulse {
+    0%, 100% { 
+        text-shadow: 
+            0 0 20px rgba(58, 134, 255, 0.7),
+            0 0 40px rgba(58, 134, 255, 0.4);
+    }
+    50% { 
+        text-shadow: 
+            0 0 30px rgba(58, 134, 255, 1),
+            0 0 60px rgba(58, 134, 255, 0.6);
+    }
+}
+
+/* ===== الشعار الفرعي ===== */
+.tagline {
+    font-size: 1.5rem;
+    color: var(--accent-light);
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in-up 1s forwards 6.5s;
+    text-shadow: 0 0 10px rgba(58, 134, 255, 0.3);
+}
+
+@keyframes fade-in-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+/* ===== شريط التحميل ===== */
+.loading-bar-container {
+    width: 300px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    opacity: 0;
+    animation: fade-in 0.5s forwards 7s;
+    box-shadow: 0 0 10px rgba(58, 134, 255, 0.2);
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, 
+        var(--accent),
+        var(--gold),
+        var(--accent));
+    background-size: 200% 100%;
+    border-radius: 2px;
+    animation: 
+        loading 3s forwards 7.5s,
+        loading-gradient 2s infinite linear;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes loading-gradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
+    animation: loading-shine 1s infinite;
+}
+
+@keyframes loading {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+@keyframes loading-shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== نص التحميل ===== */
+.loading-text {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fade-in 0.5s forwards 7s;
+    text-shadow: 0 0 5px rgba(58, 134, 255, 0.2);
+}
+
+/* ===== تأثير الانتقال ===== */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.transition-overlay.active {
+    transform: translateY(0);
+}
+
+/* ===== تحسينات للجوال ===== */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 3.5rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .loading-bar-container {
+        width: 250px;
+    }
+
+    .airplane-container {
+        transform: scale(0.7);
+    }
+}
+
+/* ===== تأثير الضباب ===== */
+.fog {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, 
+        rgba(255, 255, 255, 0.1),
+        transparent);
+    z-index: 4;
+    pointer-events: none;
+    animation: fog-move 20s infinite alternate;
+}
+
+@keyframes fog-move {
+    0% { transform: translateX(-10%); }
+    100% { transform: translateX(10%); }
+}
+
+/* ===== تأثير الإضاءة ===== */
+.light-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+        rgba(58, 134, 255, 0.1) 0%,
+        transparent 70%);
+    z-index: 3;
+    pointer-events: none;
+    animation: light-pulse 8s infinite alternate;
+    mix-blend-mode: screen;
+}
+
+@keyframes light-pulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* ===== تأثير الإشعاع ===== */
+.glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,
+        rgba(58, 134, 255, 0.2),
+        transparent 70%);
+    filter: blur(20px);
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: glow-pulse 4s infinite alternate;
+    mix-blend-mode: screen;
+}
+
+@keyframes glow-pulse {
+    0% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.2;
+    }
+}

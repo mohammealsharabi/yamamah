@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز طيران - اليمامة للسفر والسياحة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="D:/اليمامة/style/stlyeبيانات زيارة.css">
+
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <div class="logoo--container">
+        <div class="logo">AL-YAMAMAH</div>
+    </div>
+    <div class="container">
+        <h2>حجز طيران</h2>
+        
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i> تم تسجيل طلب الحجز بنجاح! سنتواصل معك قريباً لتأكيد الحجز.
+        </div>
+        
+        <div id="errorMessage" class="error-message">
+            <i class="fas fa-exclamation-circle"></i> يرجى التأكد من إدخال جميع البيانات المطلوبة بشكل صحيح.
+        </div>
+        
+        <div class="flight-icon">
+            <i class="fas fa-plane"></i>
+        </div>
+        
+        <form id="flightBookingForm">
+            <div class="form-group">
+                <label class="required-field">نوع الرحلة</label>
+                <div class="trip-type-container">
+                    <div class="trip-type-option">
+                        <input type="radio" id="roundTrip" name="tripType" value="roundTrip" checked>
+                        <label for="roundTrip">ذهاب وعودة</label>
+                    </div>
+                    <div class="trip-type-option">
+                        <input type="radio" id="oneWay" name="tripType" value="oneWay">
+                        <label for="oneWay">ذهاب فقط</label>
+                    </div>
+                    <div class="trip-type-option">
+                        <input type="radio" id="multiCity" name="tripType" value="multiCity">
+                        <label for="multiCity">متعدد الوجهات</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flight-info">
+                <h3>معلومات الرحلة</h3>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="departure" class="required-field">مدينة المغادرة</label>
+                            <input type="text" id="departure" name="departure" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="destination" class="required-field">مدينة الوصول</label>
+                            <input type="text" id="destination" name="destination" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="departureDate" class="required-field">تاريخ المغادرة</label>
+                            <input type="date" id="departureDate" name="departureDate" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="returnDate" id="returnDateLabel" class="required-field">تاريخ العودة</label>
+                            <input type="date" id="returnDate" name="returnDate" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="adults" class="required-field">البالغين (12+ سنة)</label>
+                        <select id="adults" name="adults" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="children">الأطفال (2-11 سنة)</label>
+                        <select id="children" name="children">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="infants">الرضع (أقل من سنتين)</label>
+                        <select id="infants" name="infants">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="flightClass" class="required-field">درجة السفر</label>
+                <select id="flightClass" name="flightClass" required>
+                    <option value="economy">الدرجة الاقتصادية</option>
+                    <option value="premiumEconomy">الدرجة الاقتصادية المميزة</option>
+                    <option value="business">درجة رجال الأعمال</option>
+                    <option value="first">الدرجة الأولى</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="airline">شركة الطيران المفضلة</label>
+                <select id="airline" name="airline">
+                    <option value="">أي شركة طيران</option>
+                    <option value="saudia">الخطوط السعودية</option>
+                    <option value="emirates">طيران الإمارات</option>
+                    <option value="etihad">الاتحاد للطيران</option>
+                    <option value="qatar">الخطوط القطرية</option>
+                    <option value="turkish">الخطوط التركية</option>
+                    <option value="egyptair">مصر للطيران</option>
+                    <option value="yemenia">اليمنية</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="contactName" class="required-field">اسم المتصل</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="contactPhone" class="required-field">رقم الجوال</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="contactEmail">البريد الإلكتروني</label>
+                <input type="email" id="contactEmail" name="contactEmail" placeholder="example@domain.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">ملاحظات إضافية</label>
+                <textarea id="notes" name="notes" rows="3" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Cairo', sans-serif; resize: vertical;"></textarea>
+            </div>
+            
+            <button type="submit">تأكيد الحجز</button>
+        </form>
+        
+        <a href="المقدمة.html" class="back-button">
+            <i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية
+        </a>
+        
+        <div class="footer">
+            <p>© 2024 اليمامة للسفر والسياحة. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+    <script>
+        // Trip type toggle
+        const tripTypeRadios = document.querySelectorAll('input[name="tripType"]');
+        const returnDateField = document.getElementById('returnDate');
+        const returnDateLabel = document.getElementById('returnDateLabel');
+        
+        tripTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'oneWay') {
+                    returnDateField.disabled = true;
+                    returnDateField.required = false;
+                    returnDateLabel.classList.remove('required-field');
+                    returnDateField.value = '';
+                } else {
+                    returnDateField.disabled = false;
+                    returnDateField.required = true;
+                    returnDateLabel.classList.add('required-field');
+                }
+            });
+        });
+        
+        // Set minimum dates for departure and return
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const formatDate = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+        
+        const departureDateInput = document.getElementById('departureDate');
+        const returnDateInput = document.getElementById('returnDate');
+        
+        departureDateInput.min = formatDate(today);
+        returnDateInput.min = formatDate(tomorrow);
+        
+        // Update return date minimum when departure date changes
+        departureDateInput.addEventListener('change', function() {
+            const departureDate = new Date(this.value);
+            const nextDay = new Date(departureDate);
+            nextDay.setDate(nextDay.getDate() + 1);
+            returnDateInput.min = formatDate(nextDay);
+            
+            // If return date is before departure date, update it
+            if (new Date(returnDateInput.value) <= departureDate) {
+                returnDateInput.value = formatDate(nextDay);
+            }
+        });
+        
+        // Form submission
+        document.getElementById('flightBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = document.querySelectorAll('[required]:not(:disabled)');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // Reset form after successful submission
+                setTimeout(() => {
+                    document.getElementById('flightBookingForm').reset();
+                    // Re-enable return date if it was disabled
+                    returnDateField.disabled = false;
+                    returnDateField.required = true;
+                    returnDateLabel.classList.add('required-field');
+                    // Hide success message after some time
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            } else {
+                // Show error message
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

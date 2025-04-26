@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="اليمامة للسفر والسياحة - خدمات سفر متكاملة وعروض مميزة">
+    <title>اليمامة للسفر والسياحة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="D:/اليمامة/style/stlyeرحلات الطيران.css">
+    <style>
+      
+    </style>
+</head>
+<body>
+    <!-- تأثيرات الخلفية -->
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="fog"></div>
+
+    <!-- مؤشر التمرير -->
+    <div class="scroll-indicator-container">
+        <div class="scroll-indicator" id="scrollIndicator"></div>
+    </div>
+
+    <!-- المؤشر المخصص -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- الشعار -->
+    <div class="logo-container">
+        <div class="logo">AL-YAMAMAH</div>
+    </div>
+
+    <!-- القائمة -->
+    <div class="menu-container" id="menuToggle">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
+
+    <!-- القائمة المنسدلة -->
+    <div class="nav-menu" id="navMenu">
+        <button class="nav-menu-close" id="navMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="nav-menu-list">
+            <li class="nav-menu-item"><a href="#" class="nav-menu-link">الرئيسية</a></li>
+            <li class="nav-menu-item"><a href="#services" class="nav-menu-link">خدماتنا</a></li>
+            <li class="nav-menu-item"><a href="#destinations" class="nav-menu-link">وجهات السفر</a></li>
+            <li class="nav-menu-item"><a href="#offers" class="nav-menu-link">العروض الخاصة</a></li>
+            <li class="nav-menu-item"><a href="#contact" class="nav-menu-link">اتصل بنا</a></li>
+            <li class="nav-menu-item"><a href="hajj.html" class="nav-menu-link">الحج والعمرة</a></li>
+        </ul>
+    </div>
+
+    <!-- الخلفية المتحركة -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                رحلات <span>استثنائية</span> تنتظرك
+            </h1>
+            <p class="hero-description">
+                اكتشف العالم مع أفضل العروض الحصرية لرحلات الطيران، تمتع بخدماتنا المميزة 
+                وحجوزات مرنة تلبي جميع احتياجاتك
+            </p>
+            <button class="btn">استكشف الرحلات</button>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="section services-section" id="services">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <h3 class="service-title">حجز فوري</h3>
+                <p class="service-description">
+                    تأكيد فوري للحجز مع خيارات دفع متعددة وأسعار تنافسية تناسب جميع الميزانيات
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="service-title">تعديل المواعيد</h3>
+                <p class="service-description">
+                    مرونة في تغيير مواعيد الرحلات وفق سياسة التعديلات الميسرة بدون رسوم إضافية
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">ضمان الاسترداد</h3>
+                <p class="service-description">
+                    استرداد كامل المبلغ وفق الشروط مع معالجة سريعة خلال 24 ساعة لراحة بالك
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الوجهات -->
+    <section class="destinations-section" id="destinations">
+        <h2 class="section-title">وجهات مميزة</h2>
+        <div class="destinations-grid">
+            <div class="destination-card" 
+                 style="background-image: url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1920&q=80')">
+                <div class="destination-overlay">
+                    <h3 class="destination-title">دبي</h3>
+                    <div class="destination-info">
+                        <p class="destination-price">رحلة اقتصادية من 799 ر.س</p>
+                        <button class="btn">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-card" 
+                 style="background-image: url('https://images.unsplash.com/photo-1543832923-44667a44c804?auto=format&fit=crop&w=1920&q=80')">
+                <div class="destination-overlay">
+                    <h3 class="destination-title">لندن</h3>
+                    <div class="destination-info">
+                        <p class="destination-price">رحلة فاخرة من 2499 ر.س</p>
+                        <button class="btn">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-card" 
+                 style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1920&q=80')">
+                <div class="destination-overlay">
+                    <h3 class="destination-title">طوكيو</h3>
+                    <div class="destination-info">
+                        <p class="destination-price">رحلة مميزة من 3299 ر.س</p>
+                        <button class="btn">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العروض الخاصة -->
+    <section class="section special-offers" id="offers">
+        <h2 class="section-title">عروضنا الخاصة</h2>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <h3 class="offer-title">خصم 20% على رحلات آسيا</h3>
+                <p class="offer-description">احجز قبل 30 يومًا واستمتع بخصم 20% على جميع رحلاتنا إلى وجهات آسيا المميزة</p>
+                <button class="btn">اكتشف العرض</button>
+            </div>
+            <div class="offer-card">
+                <h3 class="offer-title">رحلة عودة مجانية</h3>
+                <p class="offer-description">احجز رحلتك ذهابًا وإيابًا واحصل على رحلة العودة مجانًا عند حجزك المبكر</p>
+                <button class="btn">اكتشف العرض</button>
+            </div>
+            <div class="offer-card">
+                <h3 class="offer-title">خدمات فاخرة بسعر معقول</h3>
+                <p class="offer-description">استمتع بخدماتنا الفاخرة مع خصم خاص على حجوزات الدرجة الأولى ورجال الأعمال</p>
+                <button class="btn">اكتشف العرض</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section class="section" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3 class="service-title">اتصل بنا</h3>
+                <p class="service-description">
+                    يمكنك الاتصال بنا على الرقم: <br>
+                    +967 777796408
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="service-title">البريد الإلكتروني</h3>
+                <p class="service-description">
+                    راسلنا على البريد الإلكتروني: <br>
+                    info@alyamamah.com
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="service-title">موقعنا</h3>
+                <p class="service-description">
+                    صنعاء - شارع الستين الشمالي <br>
+                    أمام كلية الطب - جولة الولاعة
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <i class="fab fa-instagram social-icon"></i>
+                <i class="fab fa-twitter social-icon"></i>
+                <i class="fab fa-linkedin social-icon"></i>
+            </div>
+            <p class="copyright">
+                © 2024 اليمامة للسفريات والسياحة وخدمات الحج والعمرة
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // إنشاء النجوم في الخلفية
+        function createStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            if (!starsContainer) return;
+            
+            // تقليل عدد النجوم لتحسين الأداء
+            const starsCount = 100;
+            
+            // استخدام DocumentFragment لتحسين الأداء
+            const fragment = document.createDocumentFragment();
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // تعيين خصائص عشوائية
+                const size = Math.random() * 2 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                const opacity = Math.random() * 0.8 + 0.2;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--delay', `${delay}s`);
+                star.style.setProperty('--opacity', opacity);
+                
+                fragment.appendChild(star);
+            }
+            
+            // إضافة جميع النجوم دفعة واحدة لتحسين الأداء
+            starsContainer.appendChild(fragment);
+        }
+
+        // تأثير المؤشر المخصص
+        function initCustomCursor() {
+            const cursor = document.getElementById('customCursor');
+            if (!cursor) return;
+            
+            // استخدام متغير لتخزين حالة المؤشر
+            let isActive = false;
+            
+            // استخدام throttle لتحسين أداء حدث mousemove
+            let lastTime = 0;
+            const throttleTime = 10; // بالمللي ثانية
+            
+            document.addEventListener('mousemove', (e) => {
+                const now = performance.now();
+                if (now - lastTime < throttleTime) return;
+                lastTime = now;
+                
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+                
+                if (!isActive) {
+                    isActive = true;
+                    cursor.style.opacity = '1';
+                }
+            });
+            
+            document.addEventListener('mousedown', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            });
+            
+            document.addEventListener('mouseup', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+            
+            // استخدام تحديد أكثر كفاءة للعناصر القابلة للنقر
+            const interactiveElements = document.querySelectorAll('.btn, .service-card, .destination-card, .offer-card, .nav-menu-link, .social-icon');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('active');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('active');
+                });
+            });
+            
+            document.addEventListener('mouseleave', () => {
+                isActive = false;
+                cursor.style.opacity = '0';
+            });
+        }
+
+        // تحديث مؤشر التمرير
+        function updateScrollIndicator() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (!scrollIndicator) return;
+            
+            // استخدام requestAnimationFrame لتحسين الأداء
+            function update() {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.pageYOffset / totalHeight) * 100;
+                scrollIndicator.style.width = `${progress}%`;
+                
+                requestAnimationFrame(update);
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // تحريك العناصر عند التمرير
+        function animateOnScroll() {
+            // استخدام Intersection Observer API لتحسين الأداء
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // تطبيق المراقب على العناصر
+            document.querySelectorAll('.service-card, .destination-card, .offer-card').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // تأثيرات الأزرار
+        function initButtonEffects() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // تأثير الـ ripple
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    ripple.style.left = `${e.clientX - btn.getBoundingClientRect().left}px`;
+                    ripple.style.top = `${e.clientY - btn.getBoundingClientRect().top}px`;
+                    btn.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 800);
+                });
+            });
+        }
+
+        // تأثيرات التمرير للخلفية
+        function initParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                const heroSection = document.querySelector('.hero-bg');
+                if (heroSection) {
+                    heroSection.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+                }
+            });
+        }
+
+        // تهيئة القائمة المنسدلة
+        function initNavMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navMenuClose = document.getElementById('navMenuClose');
+            const overlay = document.getElementById('overlay');
+            const navLinks = document.querySelectorAll('.nav-menu-link');
+            
+            if (!menuToggle || !navMenu || !navMenuClose || !overlay) return;
+            
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            function closeMenu() {
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            navMenuClose.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                    
+                    // التمرير السلس إلى القسم المطلوب
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#') && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            setTimeout(() => {
+                                targetElement.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        }
+
+        // تنفيذ الدوال عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            // استخدام setTimeout لتأخير التهيئة غير الضرورية
+            setTimeout(() => {
+                createStars();
+                initCustomCursor();
+                initButtonEffects();
+                initParallaxEffect();
+                initNavMenu();
+                
+                // تأثيرات إضافية للأيقونات في التذييل
+                document.querySelectorAll('.social-icon').forEach(icon => {
+                    icon.addEventListener('mouseenter', () => {
+                        icon.style.color = 'var(--accent)';
+                        icon.style.transform = 'translateY(-5px)';
+                    });
+                    
+                    icon.addEventListener('mouseleave', () => {
+                        icon.style.color = 'var(--text-secondary)';
+                        icon.style.transform = 'translateY(0)';
+                    });
+                });
+                
+                // تأثير تحميل الصفحة
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // تحريك العناصر عند التمرير
+            animateOnScroll();
+            
+            // تحديث مؤشر التمرير
+            updateScrollIndicator();
+        });
+    </script>
+</body>
+</html>

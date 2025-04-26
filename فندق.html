@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="اليمامة للسفر والسياحة - فنادق فاخرة في السعودية">
+    <title>الفنادق | اليمامة للسفر والسياحة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="D:/اليمامة/style/stlyeفندق.css">
+
+    <style>
+     
+
+
+    </style>
+</head>
+<body>
+    <!-- تأثيرات الخلفية -->
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="fog"></div>
+
+    <!-- مؤشر التمرير -->
+    <div class="scroll-indicator-container">
+        <div class="scroll-indicator" id="scrollIndicator"></div>
+    </div>
+
+    <!-- المؤشر المخصص -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- الشعار -->
+    <div class="logo-container">
+        <a href="index.html" class="logo">AL-YAMAMAH</a>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero-section">
+        <div class="hero-bg" style="background: linear-gradient(145deg, rgba(10, 25, 47, 0.5), rgba(2, 12, 27, 0.6)),
+                        url('578501585.jpg'); background-size: cover; background-position: center; animation: zoomIn 8s ease-in-out infinite alternate;"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    فنادق <span>فاخرة</span> في السعودية
+                </h1>
+                <p class="hero-description">
+                    اكتشف أفضل الفنادق في المملكة العربية السعودية، حيث تلتقي الفخامة بالراحة وتجربة إقامة لا تُنسى.
+                </p>
+                <div class="hero-buttons">
+                   
+                    <button class="btn btn-secondary" onclick="window.location.href='https://www.facebook.com/yamamhgroup/'">تواصل معنا</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">فندق فاخر</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">عميل راضي</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">دعم فني</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="section services-section" id="services">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <h3 class="service-title">فنادق فاخرة</h3>
+                <p class="service-description">
+                    اختر من بين مجموعة واسعة من الفنادق الفاخرة في جميع أنحاء المملكة بأفضل الأسعار.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="service-title">حجوزات مرنة</h3>
+                <p class="service-description">
+                    خطط لرحلتك بكل أريحية مع خيارات الحجز المرنة وإمكانية الإلغاء المجاني.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">أمان وموثوقية</h3>
+                <p class="service-description">
+                    نضمن لك تجربة حجز آمنة وموثوقة مع دعم على مدار الساعة لجميع استفساراتك.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفنادق -->
+    <section class="hotels-section" id="hotels">
+        <h2 class="section-title">فنادق سعودية مميزة</h2>
+        <div class="hotels-grid">
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <div class="hotel-image-container">
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                    <img src="578501585.jpg" alt="فندق الفيصلية الرياض" class="hotel-image" loading="lazy">
+                </div>
+                <div class="hotel-content">
+                    <h3 class="hotel-title">فندق الفيصلية الرياض</h3>
+                    <p class="hotel-description">
+                        يقع في قلب مدينة الرياض، ويتميز بتصميم معماري فريد وإطلالات خلابة على المدينة مع خدمات فاخرة.
+                    </p>
+                    <div class="hotel-features">
+                        <div class="hotel-feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>واي فاي مجاني</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-swimming-pool"></i>
+                            <span>مسبح</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>مطعم</span>
+                        </div>
+                    </div>
+                    <div class="hotel-price-container">
+                        <div class="hotel-price">1200 ر.س <span>/ الليلة</span></div>
+                        <button class="btn-book" data-hotel="فندق الفيصلية الرياض" data-phone="777794567" data-time="15">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <div class="hotel-image-container">
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8</span>
+                    </div>
+                    <img src="597133778.jpg" alt="فندق شيراتون جدة" class="hotel-image" loading="lazy">
+                </div>
+                <div class="hotel-content">
+                    <h3 class="hotel-title">فندق شيراتون جدة</h3>
+                    <p class="hotel-description">
+                        يتميز بموقع مثالي على كورنيش جدة، ويوفر غرفًا أنيقة ومرافق ترفيهية متنوعة مع إطلالة على البحر.
+                    </p>
+                    <div class="hotel-features">
+                        <div class="hotel-feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>واي فاي مجاني</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>صالة رياضية</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-spa"></i>
+                            <span>سبا</span>
+                        </div>
+                    </div>
+                    <div class="hotel-price-container">
+                        <div class="hotel-price">950 ر.س <span>/ الليلة</span></div>
+                        <button class="btn-book" data-hotel="فندق شيراتون جدة" data-phone="777794567" data-time="30">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <div class="hotel-image-container">
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7</span>
+                    </div>
+                    <img src="496102470.jpg" alt="فندق موفنبيك الخبر" class="hotel-image" loading="lazy">
+                </div>
+                <div class="hotel-content">
+                    <h3 class="hotel-title">فندق موفنبيك الخبر</h3>
+                    <p class="hotel-description">
+                        يوفر تجربة إقامة فاخرة في مدينة الخبر، مع سهولة الوصول إلى المراكز التجارية والمعالم السياحية.
+                    </p>
+                    <div class="hotel-features">
+                        <div class="hotel-feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>واي فاي مجاني</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-parking"></i>
+                            <span>موقف سيارات</span>
+                        </div>
+                        <div class="hotel-feature">
+                            <i class="fas fa-coffee"></i>
+                            <span>إفطار مجاني</span>
+                        </div>
+                    </div>
+                    <div class="hotel-price-container">
+                        <div class="hotel-price">850 ر.س <span>/ الليلة</span></div>
+                        <button class="btn-book" data-hotel="فندق موفنبيك الخبر" data-phone="777794567" data-time="45">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Single Modal for All Hotels -->
+            <div class="modal-overlay" id="bookingModal">
+                <div class="modal-content">
+                    <button class="close-btn">×</button>
+                    <div class="modal-body">
+                        <h2 class="modal-title">الحجز قيد التجهيز</h2>
+                        <p class="modal-text">
+                            سيتم تحويلك إلى ممثل الخدمة خلال <span class="highlight">10 ثانية</span> لإتمام حجز فندق <span class="hotel-name"></span>
+                        </p>
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <i class="fab fa-whatsapp social-icon" onclick="showBranchDialog()"></i>
+            </div>
+            <p class="copyright">
+                © 2024 اليمامة للسفر والسياحة. جميع الحقوق محفوظة.
+            </p>
+        </div>
+
+        <div id="branchDialog" class="branch-dialog" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        background: var(--secondary); padding: 2rem; border-radius: 10px; text-align: center;
+         box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; animation: fadeIn 0.3s ease;">
+            <h3 style="color: var(--accent); margin-bottom: 1.5rem;">اختر الفرع</h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <button onclick="redirectToWhatsApp('777794567')" class="btn btn-primary" style="width: 100%;">فرع تعز</button>
+                <button onclick="redirectToWhatsApp('777796408')" class="btn btn-primary" style="width: 100%;">فرع صنعاء</button>
+                <button onclick="redirectToWhatsApp('735026755')" class="btn btn-primary" style="width: 100%;">فرع عدن</button>
+                <button onclick="closeBranchDialog()" class="btn btn-secondary" style="width: 100%;">إلغاء</button>
+            </div>
+        </div>
+
+        <script>
+            function showBranchDialog() {
+                document.getElementById('branchDialog').style.display = 'block';
+            }
+            
+            function closeBranchDialog() {
+                document.getElementById('branchDialog').style.display = 'none';
+            }
+            
+            function redirectToWhatsApp(number) {
+                window.location.href = 'https://wa.me/' + number;
+            }
+        </script>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.btn-book');
+  const modal = document.getElementById('bookingModal');
+  const closeBtn = document.querySelector('.close-btn');
+  const modalText = document.querySelector('.modal-text');
+  const hotelName = document.querySelector('.hotel-name');
+  const highlight = document.querySelector('.highlight');
+
+  let currentHotel = null;
+  let redirectTimeout = null;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Get hotel data from button attributes
+      const hotel = btn.dataset.hotel;
+      const phone = btn.dataset.phone;
+      
+      // Fixed time to 10 seconds
+      const time = 10;
+
+      // Update modal content
+      hotelName.textContent = hotel;
+      highlight.textContent = `${time} ثانية`;
+      
+      // Save current hotel data
+      currentHotel = { phone, time };
+
+      // Show modal
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      // Clear previous timeout
+      clearTimeout(redirectTimeout);
+
+      // Set new timeout for 10 seconds
+      redirectTimeout = setTimeout(() => {
+        window.location.href = `https://wa.me/${phone}`;
+      }, 10000);
+    });
+  });
+
+  // Close modal handlers
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    clearTimeout(redirectTimeout);
+    currentHotel = null;
+  };
+
+  closeBtn.addEventListener('click', closeModal);
+  
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+});
+
+        
+        // إنشاء النجوم في الخلفية
+        function createStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            if (!starsContainer) return;
+            
+            // تقليل عدد النجوم لتحسين الأداء
+            const starsCount = 100;
+            
+            // استخدام DocumentFragment لتحسين الأداء
+            const fragment = document.createDocumentFragment();
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // تعيين خصائص عشوائية
+                const size = Math.random() * 2 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                const opacity = Math.random() * 0.8 + 0.2;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--delay', `${delay}s`);
+                star.style.setProperty('--opacity', opacity);
+                
+                fragment.appendChild(star);
+            }
+            
+            // إضافة جميع النجوم دفعة واحدة لتحسين الأداء
+            starsContainer.appendChild(fragment);
+        }
+
+        // تحريك العناصر عند التمرير
+        function animateOnScroll() {
+            // استخدام Intersection Observer API لتحسين الأداء
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // تطبيق المراقب على العناصر
+            document.querySelectorAll('.service-card, .hotel-card').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // تحديث مؤشر التمرير
+        function updateScrollIndicator() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (!scrollIndicator) return;
+            
+            // استخدام requestAnimationFrame لتحسين الأداء
+            function update() {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.pageYOffset / totalHeight) * 100;
+                scrollIndicator.style.width = `${progress}%`;
+                
+                requestAnimationFrame(update);
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // تأثير المؤشر المخصص
+        function initCustomCursor() {
+            const cursor = document.getElementById('customCursor');
+            if (!cursor) return;
+            
+            // استخدام متغير لتخزين حالة المؤشر
+            let isActive = false;
+            
+            // استخدام throttle لتحسين أداء حدث mousemove
+            let lastTime = 0;
+            const throttleTime = 10; // بالمللي ثانية
+            
+            document.addEventListener('mousemove', (e) => {
+                const now = performance.now();
+                if (now - lastTime < throttleTime) return;
+                lastTime = now;
+                
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+                
+                if (!isActive) {
+                    isActive = true;
+                    cursor.style.opacity = '1';
+                }
+            });
+            
+            document.addEventListener('mousedown', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            });
+            
+            document.addEventListener('mouseup', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+            
+            // استخدام تحديد أكثر كفاءة للعناصر القابلة للنقر
+            const interactiveElements = document.querySelectorAll('.btn, .btn-book, .service-card, .hotel-card, .social-icon, .back-to-top');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('active');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('active');
+                });
+            });
+            
+            document.addEventListener('mouseleave', () => {
+                isActive = false;
+                cursor.style.opacity = '0';
+            });
+        }
+
+        // تأثيرات الأزرار
+        function initButtonEffects() {
+            const buttons = document.querySelectorAll('.btn, .btn-book');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // تأثير الـ ripple
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    ripple.style.left = `${e.clientX - btn.getBoundingClientRect().left}px`;
+                    ripple.style.top = `${e.clientY - btn.getBoundingClientRect().top}px`;
+                    btn.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 800);
+                });
+            });
+        }
+
+        // تهيئة زر العودة للأعلى
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (!backToTopButton) return;
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // تنفيذ الدوال عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            // استخدام setTimeout لتأخير التهيئة غير الضرورية
+            setTimeout(() => {
+                createStars();
+                initCustomCursor();
+                initButtonEffects();
+                initBackToTop();
+                
+                // تأثير تحميل الصفحة
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // تحريك العناصر عند التمرير
+            animateOnScroll();
+            
+            // تحديث مؤشر التمرير
+            updateScrollIndicator();
+        });
+    </script>
+</body>
+</html>

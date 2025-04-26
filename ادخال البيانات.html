@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نموذج تسجيل المعتمر</title>
+  <link rel="stylesheet" href="D:/اليمامة/style/stlyeادخال البيانات.css">
+
+</head>
+<body>
+  <div class="logoo--container">
+    <div class="logo">AL-YAMAMAH</div>
+  </div>
+  <div id="customWarningModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>
+        إذا كنت موجودًا في المدينة التي يوجد بها فرع من فروع المكتب فمن الأفضل الذهاب إلى المكتب مباشرة بدلاً من الحجز عبر الإنترنت.
+      </p>
+      <button id="branchesBtn" style="margin-top: 15px; padding: 10px 20px; background-color: var(--primary-color); color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: var(--transition);">
+        فروعنا
+      </button>
+      <div id="branchesList" style="display: none; margin-top: 15px; text-align: center;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 10px; font-size: 18px; font-weight: bold; color: #333; border-bottom: 1px solid #ddd;">
+            تعز - جولة وادي القاضي
+          </li>
+          <li style="padding: 10px; font-size: 18px; font-weight: bold; color: #333; border-bottom: 1px solid #ddd;">
+            صنعاء
+          </li>
+          <li style="padding: 10px; font-size: 18px; font-weight: bold; color: #333;">
+            عدن
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div id="confirmationModal" class="modal">
+    <div class="modal-contentt">
+      <span class="close-confirmation">&times;</span>
+      <p>
+        لقد وافقت على تنبيهنا الأول. شكرًا لك! سوف نرد على طلبك بأسرع وقت عبر البريد الإلكتروني أو الهاتف.
+        <br>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>تسجيل المعتمر</h2>
+    
+    <div id="errorMessage" class="error-message">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; vertical-align: middle;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="9"></line>
+        <line x1="15" y1="15" x2="9" y2="15"></line>
+        <line x1="12" y1="18" x2="12" y2="12"></line>
+      </svg>
+      يرجى التأكد من إدخال جميع البيانات المطلوبة بشكل صحيح.
+    </div>
+    
+    <!-- شريط التقدم -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-step active" data-step="1">1</div>
+        <div class="progress-step" data-step="2">2</div>
+        <div class="progress-step" data-step="3">3</div>
+        <div class="progress-step" data-step="4">4</div>
+      </div>
+      <div class="progress-labels">
+        <div class="progress-label active">البيانات الشخصية</div>
+        <div class="progress-label">معلومات الجواز</div>
+        <div class="progress-label">المستندات</div>
+        <div class="progress-label">المراجعة والتأكيد</div>
+      </div>
+    </div>
+    
+    <form id="registrationForm">
+      <!-- الخطوة 1: البيانات الشخصية -->
+      <div class="form-step active" id="step1">
+        <h3>البيانات الشخصية</h3>
+        
+        <div class="form-group">
+          <label for="name" class="required-field">الاسم الكامل</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <div class="form-group">
+              <label for="phone" class="required-field">رقم الجوال</label>
+              <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم الجوال 9 أرقام">
+            </div>
+          </div>
+          <div class="form-col">
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" placeholder="example@gmail.com">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="required-field">الجنس</label>
+          <div class="gender-container">
+            <div class="gender-option">
+              <input type="radio" id="male" name="gender" value="male" required>
+              <label for="male">ذكر</label>
+            </div>
+            <div class="gender-option">
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">أنثى</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <div class="form-group">
+              <label for="nationality" class="required-field">الجنسية</label>
+              <select id="nationality" name="nationality" required>
+                <option value="" disabled selected>اختر الجنسية</option>
+                <option value="saudi">سعودي</option>
+                <option value="yemeni">يمني</option>
+                <option value="egyptian">مصري</option>
+                <option value="jordanian">أردني</option>
+                <option value="syrian">سوري</option>
+                <option value="other">أخرى</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-col">
+            <div class="form-group">
+              <label for="dob" class="required-field">تاريخ الميلاد</label>
+              <input type="date" id="dob" name="dob" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="step-buttons">
+          <div></div> <!-- عنصر فارغ للمحاذاة -->
+          <button type="button" class="btn-next" id="nextToStep2">التالي</button>
+        </div>
+      </div>
+      
+      <!-- الخطوة 2: معلومات الجواز -->
+      <div class="form-step" id="step2">
+        <h3>معلومات الجواز</h3>
+        
+        <div class="form-group">
+          <label for="passportNumber" class="required-field">رقم الجواز</label>
+          <input type="text" id="passportNumber" name="passportNumber" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <div class="form-group">
+              <label for="passportIssueDate">تاريخ إصدار الجواز</label>
+              <input type="date" id="passportIssueDate" name="passportIssueDate">
+            </div>
+          </div>
+          <div class="form-col">
+            <div class="form-group">
+              <label for="passportExpiry" class="required-field">تاريخ انتهاء صلاحية الجواز</label>
+              <input type="date" id="passportExpiry" name="passportExpiry" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="passportIssuingCountry">بلد إصدار الجواز</label>
+          <select id="passportIssuingCountry" name="passportIssuingCountry">
+            <option value="" disabled selected>اختر بلد الإصدار</option>
+            <option value="saudi">المملكة العربية السعودية</option>
+            <option value="yemen">اليمن</option>
+            <option value="egypt">مصر</option>
+            <option value="jordan">الأردن</option>
+            <option value="syria">سوريا</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+        
+        <div class="step-buttons">
+          <button type="button" class="btn-prev" id="backToStep1">السابق</button>
+          <button type="button" class="btn-next" id="nextToStep3">التالي</button>
+        </div>
+      </div>
+      
+      <!-- الخطوة 3: المستندات -->
+      <div class="form-step" id="step3">
+        <h3>المستندات المطلوبة</h3>
+        
+        <div class="form-group">
+          <label for="passport" class="required-field">صورة الجواز</label>
+          <div class="file-input-container">
+            <label class="file-input-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; vertical-align: middle;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span id="passportLabel">اختر صورة الجواز</span>
+              <input type="file" id="passport" name="passport" accept="image/*" required class="file-input">
+            </label>
+            <div id="passportFileName" class="file-name"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="personalPhoto" class="required-field">الصورة الشخصية</label>
+          <div class="file-input-container">
+            <label class="file-input-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; vertical-align: middle;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span id="photoLabel">اختر الصورة الشخصية</span>
+              <input type="file" id="personalPhoto" name="personalPhoto" accept="image/*" required class="file-input">
+            </label>
+            <div id="photoFileName" class="file-name"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="gender-option">
+            <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+            <label for="termsAgreement">أوافق على الشروط والأحكام وسياسة الخصوصية</label>
+          </div>
+        </div>
+        
+        <div class="step-buttons">
+          <button type="button" class="btn-prev" id="backToStep2">السابق</button>
+          <button type="button" class="btn-next" id="nextToStep4">التالي</button>
+        </div>
+      </div>
+      
+      <!-- الخطوة 4: المراجعة والتأكيد -->
+      <div class="form-step" id="step4">
+        <h3>مراجعة وتأكيد البيانات</h3>
+        
+        <div id="summaryContainer">
+          <!-- سيتم ملء هذا القسم ديناميكيًا بواسطة JavaScript -->
+        </div>
+        
+        <div class="form-group">
+          <div class="gender-option">
+            <input type="checkbox" id="dataConfirmation" name="dataConfirmation" required>
+            <label for="dataConfirmation">أؤكد أن جميع البيانات المدخلة صحيحة وكاملة</label>
+          </div>
+        </div>
+        
+        <div class="step-buttons">
+          <button type="button" class="btn-prev" id="backToStep3">السابق</button>
+          <button type="submit" class="btn-submit" id="submitForm">إرسال الطلب</button>
+        </div>
+      </div>
+    </form>
+    
+    <div id="successMessage" class="success-message">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px; vertical-align: middle;">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      تم تسجيل بياناتك بنجاح! سنتواصل معك قريباً.
+    </div>
+
+    <!-- Guarantee Modal -->
+    <div id="guaranteeModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>معلومات الضمانة المطلوبة</h3>
+        <div class="form-group">
+          <label for="guaranteeType" class="required-field">نوع الضمانة</label>
+          <select id="guaranteeType" name="guaranteeType" required>
+            <option value="" disabled selected>اختر نوع الضمانة</option>
+            <option value="commercial">ضمانة تجارية</option>
+            <option value="financial">ضمانة مالية</option>
+            <option value="personal">ضمانة شخصية</option>
+          </select>
+        </div>
+
+        <div id="requirementsSection">
+          <h4>متطلبات الضمانة:</h4>
+          <div class="requirements commercial active">
+            <ul>
+              <li>نسخة من السجل التجاري</li>
+              <li>خطاب رسمي من الشركة</li>
+              <li>إثبات القدرة المالية</li>
+            </ul>
+          </div>
+          <div class="requirements financial">
+            <ul>
+              <li>كشف حساب بنكي حديث</li>
+              <li>شهادة إيداع بنكية</li>
+              <li>تعهد كتابي موقع</li>
+            </ul>
+          </div>
+          <div class="requirements personal">
+            <ul>
+              <li>صورة الهوية الوطنية للضامن</li>
+              <li>عقد إيجار أو ملكية</li>
+              <li>تعهد خطي موقع من الضامن</li>
+            </ul>
+          </div>
+        </div>
+
+        <button type="button" id="confirmGuarantee">تم</button>
+      </div>
+    </div>
+    
+    <a href="المقدمة.html" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      العودة للصفحة الرئيسية
+    </a>
+    
+    <div class="footer">
+      <p>© 2024 اليمامة للسفر والسياحة. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+
+  <script src="اليمامة/style/stlyeادخال البيانات.js"></script>
+ 
+</body>
+</html>

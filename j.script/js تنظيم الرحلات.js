@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اليمامة للسفر والسياحة - رحلات لا تُنسى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --gold: #ffd700;
+            --text-primary: #e6f1ff;
+            --text-secondary: #8892b0;
+            --dark-bg: #020c1b;
+            --card-bg: rgba(17, 34, 64, 0.8);
+            --glow: rgba(100, 255, 218, 0.3);
+            --transition: all 0.5s ease;
+            --font-family: 'Amiri', serif;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-right: 10px;
+            background: linear-gradient(to right, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            box-shadow: 0 5px 20px var(--glow);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: var(--opacity); transform: scale(1); }
+        }
+
+        .fog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, var(--dark-bg) 70%);
+            opacity: 0.7;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            z-index: 2;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #2c3e50, #1a202c); /* لون خلفية متدرج */
+            z-index: -1;
+            filter: brightness(0.6) contrast(1.2);
+            animation: fadeIn 2s ease-in-out, zoomIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.7; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            backdrop-filter: blur(12px); /* تأثير ضبابي أكثر */
+            border-radius: 1.5rem; /* حواف دائرية أكبر */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow);
+            animation: fadeIn 1.5s ease-out, float 6s ease-in-out;
+            border: 1px solid rgba(241, 196, 15, 0.2); /* لون حدود ذهبي */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 60%);
+            opacity: 0.1;
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem; /* حجم أكبر للعنوان */
+            color: var(--text-primary);
+            margin-bottom: 2rem; /* تباعد أكبر */
+            font-weight: 800;
+            animation: pulse 2s infinite alternate;
+            text-shadow: 0 0 15px var(--glow); /* توهج أقوى */
+            line-height: 1.2; /* تحسين تباعد الأسطر */
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .hero-content p {
+            font-size: 1.3rem; /* حجم أكبر للنص */
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem; /* تباعد أكبر */
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem; /* حجم أكبر للعنوان */
+            margin-bottom: 4rem; /* تباعد أكبر */
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px; /* تباعد الحروف */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* عرض أكبر للخط */
+            height: 4px; /* سمك أكبر للخط */
+            background: var(--accent);
+            border-radius: 1rem;
+        }
+
+        .services-section {
+            padding: 8rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* عرض بطاقات أكبر */
+            gap: 4rem; /* تباعد أكبر */
+            max-width: 1400px; /* عرض أقصى أكبر */
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            backdrop-filter: blur(12px); /* تأثير ضبابي أكثر */
+            padding: 3rem; /* تباعد داخلي أكبر */
+            border-radius: 1.5rem; /* حواف دائرية أكبر */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(241, 196, 15, 0.1); /* لون حدود ذهبي */
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out both;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03); /* تأثير تحريك أكبر */
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3), 0 0 25px var(--glow); /* توهج أقوى */
+            border-color: rgba(241, 196, 15, 0.3);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.1) 0%, transparent 100%); /* لون ذهبي */
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 100px; /* حجم أكبر للأيقونة */
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+            border: 2px solid rgba(241, 196, 15, 0.3); /* لون حدود ذهبي */
+            animation: pulseIcon 2s infinite alternate;
+        }
+
+        @keyframes pulseIcon {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--accent); /* لون ذهبي */
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .service-icon::after {
+            opacity: 1;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+        }
+
+        .service-card h3 {
+            font-size: 2rem; /* حجم أكبر للعنوان */
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9; /* تباعد أسطر أكبر */
+        }
+
+        .footer {
+            background: var(--primary);
+            color: var(--text-primary);
+            padding: 6rem 2rem; /* تباعد أكبر */
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--primary));
+        }
+
+        .btn {
+            background: transparent;
+            color: var(--accent);
+            padding: 1rem 2.2rem; /* حجم أكبر للأزرار */
+            border: 2px solid var(--accent); /* سمك أكبر للحدود */
+            border-radius: 0.75rem; /* حواف دائرية أكبر */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 1.5px; /* تباعد الحروف */
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(241, 196, 15, 0.1); /* لون ذهبي */
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--glow); /* توهج أقوى */
+            transform: translateY(-3px); /* تحرك للأعلى عند التحويم */
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        /* Travel Styles */
+        .travel-section {
+            padding: 8rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* عرض بطاقات أكبر */
+            gap: 4rem; /* تباعد أكبر */
+            max-width: 1400px; /* عرض أقصى أكبر */
+            margin: 0 auto;
+        }
+
+        .travel-card {
+            background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            backdrop-filter: blur(12px); /* تأثير ضبابي أكثر */
+            border-radius: 1.5rem; /* حواف دائرية أكبر */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(241, 196, 15, 0.1); /* لون ذهبي */
+        }
+
+        .travel-card:hover {
+            transform: translateY(-15px); /* تحرك للأعلى عند التحويم */
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3), 0 0 25px var(--glow); /* توهج أقوى */
+            border-color: rgba(241, 196, 15, 0.3);
+        }
+
+        .travel-image {
+            width: 100%;
+            height: 300px; /* ارتفاع أكبر للصور */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .travel-card:hover .travel-image {
+            transform: scale(1.1);
+        }
+
+        .travel-content {
+            padding: 2.5rem; /* تباعد داخلي أكبر */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .travel-title {
+            font-size: 2rem; /* حجم أكبر للعنوان */
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .travel-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem; /* تباعد أكبر */
+            line-height: 1.9; /* تباعد أسطر أكبر */
+            font-size: 1.1rem;
+        }
+
+        .btn-book {
+            background: var(--accent);
+            color: var(--dark-bg);
+            padding: 1rem 2.2rem; /* حجم أكبر للأزرار */
+            border-radius: 0.75rem; /* حواف دائرية أكبر */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1.5px; /* تباعد الحروف */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظل خفيف */
+        }
+
+        .btn-book::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-book:hover {
+            box-shadow: 0 5px 20px var(--glow); /* توهج أقوى */
+            transform: translateY(-3px);
+        }
+
+        .btn-book:hover::before {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-container"></div>
+    <div class="fog"></div>
+
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 style="font-size: 3.5rem; color: var(--text-primary); margin-bottom: 2rem; font-weight: 800; line-height: 1.2;">
+                رحلات <span style="color: var(--accent);">لا تُنسى</span> <br> مع اليمامة للسفر والسياحة
+            </h1>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 3rem;">
+                اكتشف تجارب سفر فريدة مصممة خصيصًا لك. <br>
+                نقدم لك جولات سياحية، رحلات مغامرة، وفرصًا لاستكشاف الثقافة الغنية.
+            </p>
+            <button class="btn">اكتشف رحلاتنا</button>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-route" style="color: var(--accent); font-size: 3rem;"></i>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 1.5rem;">
+                    جولات سياحية
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.9;">
+                    استكشف أفضل الوجهات مع برامجنا السياحية المتنوعة.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hiking" style="color: var(--accent); font-size: 3rem;"></i>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 1.5rem;">
+                    رحلات المغامرة
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.9;">
+                    انطلق في مغامرات مثيرة وتجارب لا تُنسى في قلب الطبيعة.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-archway" style="color: var(--accent); font-size: 3rem;"></i>
+                </div>
+                <h3 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 1.5rem;">
+                    استكشاف الثقافة
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.9;">
+                    تعرف على الثقافة الغنية والتراث العريق للوجهات التي تزورها.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="travel-section">
+        <h2 class="section-title">رحلاتنا المميزة</h2>
+        <div class="travel-grid">
+            <div class="travel-card">
+                <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/rooftops-828734_1280.jpg" alt="جولة في المدينة القديمة" class="travel-image">
+                <div class="travel-content">
+                    <h3 class="travel-title">جولة في المدينة القديمة</h3>
+                    <p class="travel-description">
+                        استكشف الأزقة الضيقة والمعالم التاريخية في قلب المدينة القديمة.
+                    </p>
+                    <button class="btn-book">احجز الآن</button>
+                </div>
+            </div>
+
+            <div class="travel-card">
+                <img src="https://cdn.pixabay.com/photo/2018/01/07/22/34/sunset-3068485_1280.jpg" alt="رحلة سفاري في الصحراء" class="travel-image">
+                <div class="travel-content">
+                    <h3 class="travel-title">رحلة سفاري في الصحراء</h3>
+                    <p class="travel-description">
+                        استمتع بمغامرة مثيرة في قلب الصحراء، وتناول العشاء تحت النجوم.
+                    </p>
+                    <button class="btn-book">احجز الآن</button>
+                </div>
+            </div>
+            <div class="logo-container">
+                <div class="logo">AL-YAMAMAH</div>
+            </div>
+
+            <div class="travel-card">
+                <img src="https://cdn.pixabay.com/photo/2017/08/03/12/18/architecture-2577414_1280.jpg" alt="جولة في المعالم الثقافية" class="travel-image">
+                <div class="travel-content">
+                    <h3 class="travel-title">جولة في المعالم الثقافية</h3>
+                    <p class="travel-description">
+                        اكتشف المتاحف والمعابد والأماكن التاريخية التي تعكس ثقافة غنية.
+                    </p>
+                    <button class="btn-book">احجز الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 اليمامة للسفر والسياحة. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // نجوم متحركة في الخلفية
+        function createStars() {
+            const starsContainer = document.querySelector('.stars-container');
+            const starsCount = 200;
+
+            for (let 

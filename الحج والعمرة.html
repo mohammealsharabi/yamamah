@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الحج والعمرة - اليمامة للسفر والسياحة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="D:/اليمامة/style/stlyeالحج والعمرة.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- مؤشر التمرير -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- المؤشر المخصص -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- النجوم في الخلفية -->
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="fog"></div>
+
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-logo">
+            <a href="index.html" class="logo">AL-YAMAMAH</a>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link">الرئيسية</a>
+            <a href="#services" class="nav-link">خدماتنا</a>
+            <a href="#packages" class="nav-link">الباقات</a>
+            <a href="#contact" class="nav-link">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero-section">
+        <div class="hero-bg">
+            <div class="hero-pattern"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                خدمات <span class="highlight">الحج والعمرة</span>
+                <br>
+                <span class="company-name">مع اليمامة للسفر والسياحة</span>
+            </h1>
+            <p class="hero-description">
+                نقدم لكم باقات شاملة لتجربة روحانية لا تُنسى
+                <br>
+                <span class="services-list">
+                    يشمل النقل المريح، الإقامة المتميزة، والخدمات التي تلبي احتياجاتكم
+                </span>
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="window.location.href='#packages'">
+                    <i class="fas fa-mosque"></i>
+                    اكتشف باقاتنا
+                </button>
+                <button class="btn btn-secondary" onclick="window.location.href='#contact'">
+                    <i class="fas fa-phone"></i>
+                    تواصل معنا
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="section" id="services">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <h3 class="service-title">النقل المريح</h3>
+                <p class="service-description">
+                    نقدم خدمات نقل مريحة وموثوقة تضمن وصولكم إلى وجهتكم بكل يسر وأمان. حافلات حديثة ومكيفة مع سائقين محترفين.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <h3 class="service-title">إقامة متميزة</h3>
+                <p class="service-description">
+                    نختار لكم أفضل الفنادق وأماكن الإقامة التي تضمن راحتكم واستجمامكم. خيارات متنوعة تناسب جميع الميزانيات.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <h3 class="service-title">خدمات شاملة</h3>
+                <p class="service-description">
+                    نقدم خدمات متكاملة تشمل التأشيرات، الإرشاد الديني، والدعم على مدار الساعة لضمان تجربة روحانية مريحة وخالية من المتاعب.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الباقات -->
+    <section class="section" id="packages">
+        <h2 class="section-title">باقات الحج والعمرة</h2>
+        <div class="hajj-grid">
+            <div class="hajj-card reveal">
+                <div class="hajj-image-container">
+                    <img src="images.jpeg" alt="باقة الحج المميزة" class="hajj-image" loading="lazy">
+                </div>
+                <div class="hajj-content">
+                    <h3 class="hajj-title">باقة الحج المميزة</h3>
+                    <p class="hajj-description">
+                        تشمل الإقامة في فنادق 5 نجوم، وجولات إرشادية، وخدمات نقل VIP، ووجبات فاخرة، ومرشد ديني متخصص.
+                    </p>
+                    <button class="btn-book" onclick="showBookingPrompt()">احجز الآن</button>
+                </div>
+            </div>
+
+            <div class="hajj-card reveal">
+                <div class="hajj-image-container">
+                    <img src="1323720_0.jpg" alt="باقة العمرة الاقتصادية" class="hajj-image" loading="lazy">
+                </div>
+                <div class="hajj-content">
+                    <h3 class="hajj-title">باقة العمرة الاقتصادية</h3>
+                    <p class="hajj-description">
+                        توفر إقامة مريحة بأسعار مناسبة، مع خدمات نقل شاملة، ووجبات متنوعة، وبرنامج زيارات للأماكن المقدسة.
+                    </p>
+                    <button class="btn-book" onclick="showBookingPrompt()">احجز الآن</button>
+                </div>
+            </div>
+
+            <div class="hajj-card reveal">
+                <div class="hajj-image-container">
+                    <img src="947174-صورة-من-العمرة.webp" alt="باقة العمرة العائلية" class="hajj-image" loading="lazy">
+                </div>
+                <div class="hajj-content">
+                    <h3 class="hajj-title">باقة العمرة العائلية</h3>
+                    <p class="hajj-description">
+                        صممت لتناسب العائلات، وتشمل خدمات خاصة للأطفال وكبار السن، وغرف عائلية واسعة، وبرامج ترفيهية للأطفال.
+                    </p>
+                    <button class="btn-book" onclick="showBookingPrompt()">احجز الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة الحجز -->
+        <div id="bookingModal" class="booking-modal">
+            <div class="booking-content">
+                <span class="close-booking" onclick="closeBookingPrompt()">&times;</span>
+                <div class="booking-message">
+                    <i class="fas fa-clock pulse-icon"></i>
+                    <h3>عذراً</h3>
+                    <p>لم يتم تجهيز العرض بعد</p>
+                    <p>يرجى المحاولة لاحقاً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section class="section" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="services-grid">
+            <div class="service-card reveal" onclick="window.location.href='https://wa.me/967777794567';" style="cursor: pointer;">
+                <div class="service-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3 class="service-title">اتصل بنا</h3>
+                <p class="service-description">
+                    تواصل معنا عبر الواتساب: <br>
+                    +967 777794567
+                </p>
+            </div>
+
+            <div class="service-card reveal" onclick="window.location.href='mailto:Yamamataiz18@gmail.com';" style="cursor: pointer;">
+                <div class="service-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="service-title">البريد الإلكتروني</h3>
+                <p class="service-description">
+                    راسلنا على البريد الإلكتروني:
+                    <span style="color: var(--accent); display: block; margin-top: 0.5rem;">
+                        Yamamataiz18@gmail.com
+                    </span>
+                </p>
+            </div>
+
+            <div class="service-card reveal" onclick="showMap()" style="cursor: pointer;">
+                <div class="service-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="service-title">موقعنا</h3>
+                <p class="service-description">
+                    صنعاء - شارع الستين الشمالي <br>
+                    أمام كلية الطب - جولة الولاعة
+                </p>
+            </div>
+
+            <!-- Map Modal -->
+            <div id="mapModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeMap()">&times;</span>
+                    <h3 style="color: var(--accent); margin-bottom: 15px;">موقعنا على الخريطة</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.7376657565!2d44.20653!3d15.3524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDIxJzA4LjYiTiA0NMKwMTInMjMuNSJF!5e0!3m2!1sen!2s!4v1635000000000!5m2!1sen!2s"
+                        width="100%" 
+                        height="450" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن اليمامة</h3>
+                <p>شركة اليمامة للسفر والسياحة هي شركة رائدة في مجال خدمات السفر والسياحة والحج والعمرة، تأسست عام 2005 وتقدم خدمات متميزة لعملائها.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/yourpage" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/yourpage" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/yourpage" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/967777794567" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#packages">الباقات</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>فروعنا</h3>
+                <p>صنعاء - شارع الستين الشمالي</p>
+                <p>تعز - جولة وادي القاضي</p>
+                <p>عدن - المعلا</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 اليمامة للسفر والسياحة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="اليمامة/style/stlyejs الحج والعمرة.js"></script>
+</body>
+</html>
